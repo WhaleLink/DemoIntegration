@@ -9,8 +9,9 @@ contract BaseToken is ERC20, PayedTransaction, Ownable {
     constructor(
         string memory name,
         string memory symbol,
-        address _executor
-    ) ERC20(name, symbol) PayedTransaction(_executor) {}
+        address executor,
+        address payer
+    ) ERC20(name, symbol) PayedTransaction(executor, payer) {}
 
     function supportsInterface(
         bytes4 interfaceId

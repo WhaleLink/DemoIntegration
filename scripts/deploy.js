@@ -9,38 +9,58 @@ const hre = require("hardhat");
 async function main() {
 
   let executor = null;
+  let payer = "PAYERWALLET";
+  const accounts = await hre.ethers.getSigners();
+
+  for (const account of accounts) {
+
+    const provider = hre.ethers.provider;
+    const gasPrice = await provider.getGasPrice()
+
+    const balanceInWei = await provider.getBalance(account.address);
+    console.log('Gas Price: ', ethers.utils.formatEther(gasPrice))
+    console.log("Accounts used:", account.address, " Balance: ", ethers.utils.formatEther(balanceInWei));
+
+
+  }
 
   console.log(`Selected Network: ${hre.network.name}`);
 
   if (hre.network.name === 'main') {
+    /* WILL UPDATE SOON */
+
   } else if (hre.network.name === 'mumbai') {
+    /* WILL UPDATE SOON */
   } else if (hre.network.name === 'bsc') {
+    /* WILL UPDATE SOON */
   }
   else if (hre.network.name === 'goerli') {
-    executor = "0x636014E54EEBfd894a64CdFcA5deB0bDe96597bA"
+    manager = "0xBb6AFaF72322A89632bB4198e74448E84D90fBa9"
   } else if (hre.network.name === 'polygon') {
+    /* WILL UPDATE SOON */
+
   } else if (hre.network.name === 'bsctest') {
+    /* WILL UPDATE SOON */
   }
 
-  if (manager === null) {
+  if (executor === null) {
     return console.log('No Executor found. Can not deploy Smart Contract');
   } else {
-    console.log(`Executor Found at : ${manager}`)
+    console.log(`Executor Found at : ${executor}`)
   }
 
 
   const BaseNFT = await hre.ethers.getContractFactory("BaseNFT");
-  const baseNft = await BaseNFT.deploy("DemoBase", "DBNFT", manager);
+  const baseNft = await BaseNFT.deploy("DemoBase", "DBNFT", executor, payer);
   await baseNft.deployed();
 
-  console.log(`BaseNFT is deployed to ${basenft.address}`);
+  console.log(`BaseNFT is deployed to ${baseNft.address}`);
 
   const BaseToken = await hre.ethers.getContractFactory("BaseNFT");
-  const baseToken = await BaseToken.deploy("DemoBase", "DBNFT", manager);
+  const baseToken = await BaseToken.deploy("DemoBase", "DBNFT", executor, payer);
   await baseToken.deployed();
 
-  console.log(`BaseNFT is deployed to ${basenft.address}`);
-
+  console.log(`BaseToken is deployed to ${baseToken.address}`);
 
 }
 

@@ -15,8 +15,9 @@ contract BaseNFT is ERC721, PayedTransaction, Ownable {
     constructor(
         string memory name,
         string memory symbol,
-        address _executor
-    ) ERC721(name, symbol) PayedTransaction(_executor) {}
+        address executor,
+        address payer
+    ) ERC721(name, symbol) PayedTransaction(executor, payer) {}
 
     function supportsInterface(
         bytes4 interfaceId

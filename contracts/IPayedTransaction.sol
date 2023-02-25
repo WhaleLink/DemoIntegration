@@ -9,5 +9,33 @@ interface IPayedTransaction {
     /**
      * This Method is called from the
      */
-    function creditCardMint(address _target, uint256 _amount) external;
+    function creditCardMint(
+        address _target,
+        uint256 _amoun,
+        address payert
+    ) external;
+
+    /**
+     * Returns the Payerwallet
+     */
+    function payerWallet() external view returns (address);
+
+    /**
+     * Sets the payerwallet
+     *
+     * @param _payer The Payerwallet
+     */
+    function setPayerWallet(address _payer) external;
+
+    /**
+     * Get Controller from Wallet
+     *
+     */
+
+    function getController() external view returns (address);
+
+    /**
+     * get the Manager
+     */
+    function manager() external view returns (address);
 }
