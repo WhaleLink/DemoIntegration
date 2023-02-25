@@ -1,6 +1,6 @@
 # WhaleLink Integration Example
 
-This is a demo project that showcases a simple use case to integrate with WhaleLink Infrastructure. The repository includes a sample contract, a test for the contract, and a deployment script.
+This is a demo project that showcases a simple use case to integrate with [WhaleLink](https://whalelink.net/) Infrastructure. The repository includes a sample contract, a test for the contract, and a deployment script.
 
 ## Getting Started
 
