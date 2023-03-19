@@ -30,14 +30,14 @@ async function main() {
     /* WILL UPDATE SOON */
 
   } else if (hre.network.name === 'mumbai') {
-    manager = "0x636014E54EEBfd894a64CdFcA5deB0bDe96597bA"
+    executor = "0x636014E54EEBfd894a64CdFcA5deB0bDe96597bA"
   } else if (hre.network.name === 'bsc') {
     /* WILL UPDATE SOON */
   }
   else if (hre.network.name === 'goerli') {
-    manager = "0xBb6AFaF72322A89632bB4198e74448E84D90fBa9"
+    executor = "0xBb6AFaF72322A89632bB4198e74448E84D90fBa9"
   } else if (hre.network.name === 'polygon') {
-    manager = "0x3acfB6f6DFf8E444dbeebacAFc5C77634f70AF6a"
+    executor = "0x3acfB6f6DFf8E444dbeebacAFc5C77634f70AF6a"
   } else if (hre.network.name === 'bsctest') {
     /* WILL UPDATE SOON */
   }
